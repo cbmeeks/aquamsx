@@ -172,7 +172,7 @@ void createSdlGlSurface(int width, int height, int fullscreen)
 
 int createSdlWindow()
 {
-    const char *title = "blueMSXlite";
+    const char *title = "aquaMSX";
     int fullscreen = properties->video.windowSize == P_VIDEO_SIZEFULLSCREEN;
     int width;
     int height;
