@@ -25,9 +25,9 @@
 **
 ******************************************************************************
 */
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #define ENABLE_OPENGL
-#endif
+//#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -133,6 +133,7 @@ void createSdlGlSurface(int width, int height, int fullscreen)
 
     int flags = SDL_OPENGL | (fullscreen ? SDL_FULLSCREEN : 0);
 
+	SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, 1);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	surface = SDL_SetVideoMode(width, height, fullscreen ? bitDepth : 0, flags);
