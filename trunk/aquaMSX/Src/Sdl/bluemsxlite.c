@@ -534,8 +534,8 @@ int main(int argc, char **argv)
     strcat(path, DIR_SEPARATOR "bluemsx.ini");
     properties = propCreate(resetProperties, 0, P_KBD_EUROPEAN, 0, "");
     
-    properties->emulation.syncMethod = P_EMU_SYNCFRAMES;    
-//    properties->emulation.syncMethod = P_EMU_SYNCTOVBLANKASYNC;
+//    properties->emulation.syncMethod = P_EMU_SYNCFRAMES;    
+  properties->emulation.syncMethod = P_EMU_SYNCTOVBLANK;
 
     if (resetProperties == 2) {
         propDestroy(properties);
