@@ -2124,6 +2124,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
+					"-DOSX",
 					"-DDEBUG",
 					"-DNO_ASM",
 					"-DNO_HIRES_TIMERS",
@@ -2131,7 +2132,11 @@
 					"-DNO_EMBEDDED_SAMPLES",
 					"-DUSE_SDL",
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNO_ASM",
+					"-DDEBUG",
+					"-DOSX",
+				);
 				PREBINDING = NO;
 				SDKROOT = "";
 			};
@@ -2156,13 +2161,19 @@
 					"$(HEADER_SEARCH_PATHS)",
 				);
 				OTHER_CFLAGS = (
+					"-DOSX",
+					"-DFINAL",
 					"-DNO_ASM",
 					"-DNO_HIRES_TIMERS",
 					"-DNO_FILE_HISTORY",
 					"-DNO_EMBEDDED_SAMPLES",
 					"-DUSE_SDL",
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNO_ASM",
+					"-DFINAL",
+					"-DOSX",
+				);
 				PREBINDING = NO;
 				SDKROOT = "";
 			};
