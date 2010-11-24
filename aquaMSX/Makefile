@@ -14,7 +14,7 @@ SILENT = @
 OFF = 0 
 ON	= 1
 DEBUG = OFF
-RELEASE = ON
+FINAL = ON
 #
 # Directories
 #
@@ -40,7 +40,7 @@ EXTRAFLAGS	= -DOSX
 ifeq ($(DEBUG),ON) 
 EXTRAFLAGS 	+=  -DDEBUG
 else
-EXTRAFLAGS 	+=  -DRELEASE
+EXTRAFLAGS 	+=  -DFINAL
 endif
 
 
@@ -48,7 +48,7 @@ endif
 CFLAGS   = -g -w -O2 -DNO_ASM -DNO_HIRES_TIMERS \
 -DNO_FILE_HISTORY  -DNO_EMBEDDED_SAMPLES -DUSE_SDL \
 	 -I$(PREF_INC) $(EXTRAFLAGS)
-CPPFLAGS = -g -DNO_ASM 
+CPPFLAGS = -g -DNO_ASM  $(EXTRAFLAGS)
 LDFLAGS  = SDLmain.m  -I/Library/Frameworks/SDL.framework/Headers
 LIBS     =  -framework SDL -framework Cocoa -framework GLUT -framework OpenGL
 TARGET   = blueMSXlite
@@ -472,3 +472,6 @@ $(OUTPUT_DIR)/%.res: %.rc $(HEADER_FILES)
 	$(ECHO) Compiling $<...
 	@$(RC) $(CPPFLAGS) $(INCLUDE) -o $@ -i $<
 
+echo:
+	@echo $(CFLAGS)
+	@echo $(CPPFLAGS)
