@@ -235,10 +235,13 @@ void propInitDefaults(Properties* properties, int langType, PropKeyboardLanguage
 
     properties->emulation.statsDefDir[0]     = 0;
     properties->emulation.shortcutProfile[0] = 0;
-    strcpy(properties->emulation.machineName, "MSX2");
+//    strcpy(properties->emulation.machineName, "MSX2");
+    strcpy(properties->emulation.machineName, "MSX2 - Japanese"); /* MK2 */
     properties->emulation.speed             = 50;
-    properties->emulation.syncMethod        = syncMode ? P_EMU_SYNCTOVBLANK : P_EMU_SYNCAUTO;
-    properties->emulation.vdpSyncMode       = P_VDP_SYNCAUTO;
+//    properties->emulation.syncMethod        = syncMode ? P_EMU_SYNCTOVBLANK : P_EMU_SYNCAUTO;
+    properties->emulation.syncMethod        = P_EMU_SYNCTOVBLANK; /* MK2 */
+//    properties->emulation.vdpSyncMode       = P_VDP_SYNCAUTO;
+    properties->emulation.vdpSyncMode       = P_VDP_SYNC60HZ; /* MK2 */
     properties->emulation.enableFdcTiming   = 1;
     properties->emulation.frontSwitch       = 0;
     properties->emulation.pauseSwitch       = 0;
@@ -251,13 +254,15 @@ void propInitDefaults(Properties* properties, int langType, PropKeyboardLanguage
     properties->emulation.reverseMaxTime    = 15;
 
     properties->video.monitorColor          = P_VIDEO_COLOR;
+//    properties->video.monitorColor          = P_VIDEO_GREEN; /* MK2 */
     properties->video.monitorType           = P_VIDEO_PALMON;
     properties->video.windowSize            = P_VIDEO_SIZEX2;
     properties->video.windowSizeInitial     = properties->video.windowSize;
     properties->video.windowSizeChanged     = 0;
     properties->video.windowX               = -1;
     properties->video.windowY               = -1;
-    properties->video.driver                = P_VIDEO_DRVDIRECTX_VIDEO;
+//    properties->video.driver                = P_VIDEO_DRVDIRECTX_VIDEO;
+    properties->video.driver                = P_VIDEO_DRVSDLGL;
     properties->video.frameSkip             = 0;
     properties->video.fullscreen.width      = 640;
     properties->video.fullscreen.height     = 480;
@@ -525,7 +530,7 @@ static void propLoad(Properties* properties)
     GET_ENUM_VALUE_2(emulation, registerFileTypes, BoolPair);
     GET_ENUM_VALUE_2(emulation, disableWinKeys, BoolPair);
     GET_STR_VALUE_2(emulation, statsDefDir);
-    GET_STR_VALUE_2(emulation, machineName);
+//    GET_STR_VALUE_2(emulation, machineName);
     GET_STR_VALUE_2(emulation, shortcutProfile);
     GET_INT_VALUE_2(emulation, speed);
     GET_ENUM_VALUE_2(emulation, syncMethod, EmuSyncPair);
@@ -538,13 +543,13 @@ static void propLoad(Properties* properties)
     GET_ENUM_VALUE_2(emulation, reverseEnable, BoolPair);
     GET_INT_VALUE_2(emulation, reverseMaxTime);
     
-    GET_ENUM_VALUE_2(video, monitorColor, MonitorColorPair);
+//    GET_ENUM_VALUE_2(video, monitorColor, MonitorColorPair);
     GET_ENUM_VALUE_2(video, monitorType, MonitorTypePair);
     GET_ENUM_VALUE_2(video, windowSize, WindowSizePair);
     properties->video.windowSizeInitial = properties->video.windowSize;
     GET_INT_VALUE_2(video, windowX);
     GET_INT_VALUE_2(video, windowY);
-    GET_ENUM_VALUE_2(video, driver, VideoDriverPair);
+//    GET_ENUM_VALUE_2(video, driver, VideoDriverPair);
     GET_INT_VALUE_2(video, frameSkip);
     GET_INT_VALUE_3(video, fullscreen, width);
     GET_INT_VALUE_3(video, fullscreen, height);
